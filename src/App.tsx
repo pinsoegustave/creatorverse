@@ -2,13 +2,15 @@
 
 import './App.css'
 import Banner from './components/Banner'
+import List from './components/List'
 
 function App() {
 
   return (
-    <>
-      <Banner />
-    </>
+    <div className="relative bg-black">
+      <Banner  />
+      <List />
+    </div>
   )
 }
 

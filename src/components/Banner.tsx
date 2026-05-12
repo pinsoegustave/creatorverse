@@ -3,8 +3,8 @@ import myImage from '../assets/banner.jpeg'
 
 export default function Banner() {
   return (
-    <div className='relative h-screen bg-black'>
-        <div className="w-1/2 " />
+    <div className=''>
+        <div className="w-1/2" />
         <div className='relative w-full'>
         <img 
             src={myImage}
