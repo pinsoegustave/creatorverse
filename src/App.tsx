@@ -13,9 +13,9 @@ function App() {
 
   return (
     <div className="relative bg-black">
-      <Banner  />
-      <List />
       <Routes>
+        <Route path='/' element={<Banner />}   />
+        <Route path='/' element={<List />} />
         <Route path='/addnewcreator' element={<AddCreator />} />
         <Route path='/editcreator' element={<EditCreator />} />
         <Route path='/showcreators' element={<ShowCreators />} />
