@@ -1,8 +1,13 @@
 
 
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Banner from './components/Banner'
 import List from './components/List'
+import AddCreator from './pages/AddCreator'
+import ViewCreator from './pages/ViewCreator'
+import ShowCreators from './pages/ShowCreators'
+import EditCreator from './pages/EditCreator'
 
 function App() {
 
@@ -10,6 +15,12 @@ function App() {
     <div className="relative bg-black">
       <Banner  />
       <List />
+      <Routes>
+        <Route path='/addnewcreator' element={<AddCreator />} />
+        <Route path='/editcreator' element={<EditCreator />} />
+        <Route path='/showcreators' element={<ShowCreators />} />
+        <Route path='/viewcreator' element={<ViewCreator />} />
+      </Routes>
     </div>
   )
 }
