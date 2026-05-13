@@ -4,7 +4,7 @@ import myImage from "../assets/banner.jpeg";
 export default function List() {
   return (
     <div>
-      <h2 className="text-white text-center text-2x mt-10">
+      <h2 className="text-white text-center text-2xl">
         View your content creators
       </h2>mb-20
       {/* Cards */}
