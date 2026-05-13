@@ -2,25 +2,53 @@
 import { SiInstagram, SiX, SiYoutube } from '@icons-pack/react-simple-icons'
 import myImage from '../assets/banner.jpeg'
 import { Pencil, Trash2 } from 'lucide-react'
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { supabase } from '../client'
 
 export default function ViewCreator() {
+
+  const { id } = useParams()
+  const [ creator, setCreator ] = useState<any>(null)
+  const [ loading, setLoading ] = useState(true)
+
+  useEffect(() => {
+    const fetchCreator = async () => {
+      const {data, error} = await supabase
+        .from('creators')
+        .select('*')
+        .eq('id', id)
+        .single()
+
+        if (error) {
+          console.error('Error fetching creator:', error.message)
+        } else {
+          setCreator(data)
+          console.log(data)
+        }
+        setLoading(false)
+    }
+
+    fetchCreator()
+  }, [id])
+
+  if (loading) return <p className='text-white text-center mt-10'>Loading...</p>
+  if (!creator) return <p className='text-white text-center mt-10'>Creator not found</p>
+
   return (
     <div className="min-h-screen bg-[#111] flex items-center justify-center">
       <div className="flex flex-col w-200 rounded-b-2xl overflow-hidden shadow-xl">
         <div className='flex h-100 '>
-            {/* Left - Image */}
           <img
             src={myImage}
             alt="creator"
             className="w-1/2 h-full object-cover border-2 border-[#5185B4]"
           />
-
-          {/* Right - Info */}
           <div className="w-1/2 bg-[#111] flex flex-col justify-center gap-4 p-8">
             
             {/* Name + Edit/Delete */}
             <div className="flex items-center justify-between">
-              <h1 className="text-white text-3xl font-bold">John Doe</h1>
+              <h1 className="text-white text-3xl font-bold">{creator.name}</h1>
               <div className="flex gap-2">
                 <button className="text-white hover:text-blue-400 transition">
                   <Pencil size={18} />
@@ -32,8 +60,7 @@ export default function ViewCreator() {
             </div>
             {/* Description */}
             <p className="text-gray-400 text-sm leading-relaxed">
-              A short description about this creator goes here. They make amazing
-              content across multiple platforms and have built a huge community.
+              {creator.description}
             </p>
 
             {/* Social media icons */}

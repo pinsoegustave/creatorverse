@@ -19,7 +19,7 @@ function App() {
         <Route path='/add' element={<AddCreator />} />
         <Route path='/editcreator' element={<EditCreator />} />
         <Route path='/showcreators' element={<ShowCreators />} />
-        <Route path='/viewcreator' element={<ViewCreator />} />
+        <Route path='/viewcreator/:id' element={<ViewCreator />} />
       </Routes>
     </div>
   )

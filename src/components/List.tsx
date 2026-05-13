@@ -46,9 +46,8 @@ export default function List() {
         {creators.map(creator => (
             <div 
                 key={creator.id}
-                onClick={() => navigate(`/creator/${creator.name}`)}
+                onClick={() => navigate(`/viewcreator/${creator.id}`)}
                 className="relative w-125 h-96 rounded-2xl overflow-hidden shadow-xl border border-[#5185B4]">
-        {/* Background image */}
         <img
           src={creator.imageURL}
           alt={creator.name}
