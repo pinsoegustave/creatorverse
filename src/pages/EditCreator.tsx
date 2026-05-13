@@ -3,10 +3,11 @@ import CreatorForm from '../components/CreatorForm'
 export default function EditCreator() {
   const existingCreator = {
     name: 'John Doe',
+    url: 'fuiosrioweruoiwe',
     description: 'Amazing creator...',
-    youtube: 'https://youtube.com/@johndoe',
-    instagram: 'https://instagram.com/johndoe',
-    x: 'https://x.com/johndoe',
+    // youtube: 'https://youtube.com/@johndoe',
+    // instagram: 'https://instagram.com/johndoe',
+    // x: 'https://x.com/johndoe',
     imageUrl: 'https://example.com/image.jpg',
   }
 
