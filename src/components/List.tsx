@@ -5,10 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "../client";
 
 interface Creator {
-    name: String
-    url: String
-    description: String
-    imageURL: String
+    id: string
+    name: string
+    url: string
+    description: string
+    imageURL: string
 }
 
 export default function List() {
@@ -33,7 +34,7 @@ export default function List() {
         fetchCreators();
     }, [])
 
-    if (loading) return <p className="text-white text-center mt-10">Loading creators....</p>_
+    if (loading) return <p className="text-white text-center mt-10">Loading creators....</p>
 
   return (
     <div>
@@ -44,13 +45,13 @@ export default function List() {
       <div className="flex flex-wrap justify-center gap-6 p-8">
         {creators.map(creator => (
             <div 
-                key={creator.name}
+                key={creator.id}
                 onClick={() => navigate(`/creator/${creator.name}`)}
                 className="relative w-125 h-96 rounded-2xl overflow-hidden shadow-xl border border-[#5185B4]">
         {/* Background image */}
         <img
-          src={myImage}
-          alt="creator"
+          src={creator.imageURL}
+          alt={creator.name}
           className="w-full h-full object-cover"
         />
 
@@ -61,7 +62,7 @@ export default function List() {
         <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-2">
           {/* Name + Edit/Delete icons */}
           <div className="flex items-center justify-between">
-            <span className="text-white text-xl font-bold">John Doe</span>
+            <span className="text-white text-xl font-bold">{creator.name}</span>
             <div className="flex gap-2">
               <button className="text-white hover:text-blue-400 transition">
                 ✏️
@@ -87,7 +88,7 @@ export default function List() {
 
           {/* Description */}
           <p className="text-gray-300 text-sm leading-snug">
-            A short description about this creator goes here. Keep it brief.
+            {creator.description}
           </p>
         </div>
       </div>
