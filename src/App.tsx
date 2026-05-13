@@ -17,7 +17,7 @@ function App() {
         <Route path='/' element={<Banner />}   />
         <Route path='/' element={<List />} />
         <Route path='/add' element={<AddCreator />} />
-        <Route path='/editcreator' element={<EditCreator />} />
+        <Route path='/editcreator/:id' element={<EditCreator />} />
         <Route path='/showcreators' element={<ShowCreators />} />
         <Route path='/viewcreator/:id' element={<ViewCreator />} />
       </Routes>

@@ -2,7 +2,7 @@
 import { SiInstagram, SiX, SiYoutube } from '@icons-pack/react-simple-icons'
 import myImage from '../assets/banner.jpeg'
 import { Pencil, Trash2 } from 'lucide-react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { supabase } from '../client'
 
@@ -11,6 +11,7 @@ export default function ViewCreator() {
   const { id } = useParams()
   const [ creator, setCreator ] = useState<any>(null)
   const [ loading, setLoading ] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchCreator = async () => {
@@ -79,7 +80,9 @@ export default function ViewCreator() {
         </div>
         
         <div className="flex m-10 gap-20 items-center">
-            <button className="w-1/2 bg-[#5185B4] py-4 text-white font-bold uppercase hover:border-2 hover:border-white hover:opacity-90 transition">
+            <button 
+              onClick={() => navigate(`/editcreator/${creator.id}`)}
+              className="w-1/2 bg-[#5185B4] py-4 text-white font-bold uppercase hover:border-2 hover:border-white hover:opacity-90 transition">
                 Edit
             </button>
             <button className="w-1/2 bg-red-600 py-4 text-white font-bold uppercase hover:border-2 hover:border-white hover:opacity-90 transition">
