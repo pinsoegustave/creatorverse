@@ -1,6 +1,7 @@
 
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import myImage from '../assets/banner.jpeg'
+import List from './List';
 
 export default function Banner() {
 
@@ -28,6 +29,7 @@ export default function Banner() {
             </div>
         </div> 
             </div>
+            <List />
     </div>
   )
 }

@@ -1,15 +1,52 @@
 // import React from 'react'
+import { useEffect, useState } from "react";
 import myImage from "../assets/banner.jpeg";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../client";
+
+interface Creator {
+    name: String
+    url: String
+    description: String
+    imageURL: String
+}
 
 export default function List() {
+
+    const [creators, setCreators] = useState<Creator[]>([])
+    const [loading, setLoading] = useState(true)
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchCreators = async () => {
+            const {data, error} = await supabase
+                .from('creators')
+                .select('*')
+
+            if (error) {
+                console.error("Error fetching creators:", error.message)
+            } else {
+                setCreators(data);
+            }
+            setLoading(false)
+        }
+        fetchCreators();
+    }, [])
+
+    if (loading) return <p className="text-white text-center mt-10">Loading creators....</p>_
+
   return (
     <div>
       <h2 className="text-white text-center text-2xl">
         View your content creators
-      </h2>mb-20
+      </h2>
       {/* Cards */}
       <div className="flex flex-wrap justify-center gap-6 p-8">
-      <div className="relative w-125 h-96 rounded-2xl overflow-hidden shadow-xl border border-[#5185B4]">
+        {creators.map(creator => (
+            <div 
+                key={creator.name}
+                onClick={() => navigate(`/creator/${creator.name}`)}
+                className="relative w-125 h-96 rounded-2xl overflow-hidden shadow-xl border border-[#5185B4]">
         {/* Background image */}
         <img
           src={myImage}
@@ -54,6 +91,7 @@ export default function List() {
           </p>
         </div>
       </div>
+      ))}
       {/* Card 2 */}
       <div className="relative w-125 h-96 rounded-2xl overflow-hidden shadow-xl border border-[#5185B4]">
         {/* Background image */}
