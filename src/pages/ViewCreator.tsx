@@ -31,7 +31,26 @@ export default function ViewCreator() {
     }
 
     fetchCreator()
-  }, [id])
+  }, [id]);
+
+  const handleDelete = async () => {
+    const confirm = window.confirm('Are you sure you want to delete this creator?')
+
+    if (confirm) {
+      const { error } = await supabase
+        .from('creators')
+        .delete()
+        .eq('id', creator.id)
+
+      if (error) {
+        console.error('Error deleting creator:', error.message)
+        alert('Something went wrong')
+      } else {
+        alert('Creator deleted successfully!')
+        navigate('/')
+      }
+    }
+  }
 
   if (loading) return <p className='text-white text-center mt-10'>Loading...</p>
   if (!creator) return <p className='text-white text-center mt-10'>Creator not found</p>
@@ -85,7 +104,9 @@ export default function ViewCreator() {
               className="w-1/2 bg-[#5185B4] py-4 text-white font-bold uppercase hover:border-2 hover:border-white hover:opacity-90 transition">
                 Edit
             </button>
-            <button className="w-1/2 bg-red-600 py-4 text-white font-bold uppercase hover:border-2 hover:border-white hover:opacity-90 transition">
+            <button 
+              onClick={handleDelete}
+              className="w-1/2 bg-red-600 py-4 text-white font-bold uppercase hover:border-2 hover:border-white hover:opacity-90 transition">
                 Delete
             </button>
         </div>
