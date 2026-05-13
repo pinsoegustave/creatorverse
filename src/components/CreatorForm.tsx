@@ -5,7 +5,7 @@ interface CreatorFormProps {
     name: string
     url: string,
     description: string
-    imageUrl: string
+    imageURL: string
     // youtube: string
     // instagram: string
     // x: string
@@ -17,7 +17,7 @@ const defaultValues = {
   name: '',
   url: '',
   description: '',
-  imageUrl: '',
+  imageURL: '',
 //   youtube: '',
 //   instagram: '',
 //   x: '',
@@ -64,7 +64,7 @@ export default function CreatorForm({ initialValues, onSubmit }: CreatorFormProp
             <label className="text-sm uppercase">URL</label>
             <input
               type="text"
-              name="imageUrl"
+              name="url"
               value={formData.url}
               onChange={handleChange}
               placeholder="https://example.com/image.jpg"
@@ -89,8 +89,8 @@ export default function CreatorForm({ initialValues, onSubmit }: CreatorFormProp
             <label className="text-sm uppercase">Image URL</label>
             <input
               type="text"
-              name="imageUrl"
-              value={formData.imageUrl}
+              name="imageURL"
+              value={formData.imageURL}
               onChange={handleChange}
               placeholder="https://example.com/image.jpg"
               className="bg-black text-white border border-[#5185B4] rounded-lg p-3 focus:outline-none focus:border-white transition"

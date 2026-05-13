@@ -1,7 +1,11 @@
 
+import { Navigate, useNavigate } from 'react-router-dom'
 import myImage from '../assets/banner.jpeg'
 
 export default function Banner() {
+
+  const navigate = useNavigate();
+
   return (
     <div className=''>
         <div className="w-1/2" />
@@ -15,8 +19,12 @@ export default function Banner() {
             <span className="text-white text-9xl font-bold uppercase mb-12">creatorverse</span>
             {/* Buttons */}
             <div className='flex gap-8'>
-                <button className='uppercase bg-[#5185B4] p-4 m-4 font-extrabold text-white rounded-lg'>view all creators</button>
-                <button className='uppercase bg-[#5185B4] p-4 m-4 font-extrabold text-white rounded-lg'>add a creator</button>
+                <button 
+                  onClick={() => navigate('/showcreators')}
+                  className='uppercase bg-[#5185B4] p-4 m-4 font-extrabold text-white rounded-lg'>view all creators</button>
+                <button
+                 onClick={() => navigate('/add')}
+                 className='uppercase bg-[#5185B4] p-4 m-4 font-extrabold text-white rounded-lg'>add a creator</button>
             </div>
         </div> 
             </div>

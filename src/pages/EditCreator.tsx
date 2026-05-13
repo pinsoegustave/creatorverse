@@ -8,7 +8,7 @@ export default function EditCreator() {
     // youtube: 'https://youtube.com/@johndoe',
     // instagram: 'https://instagram.com/johndoe',
     // x: 'https://x.com/johndoe',
-    imageUrl: 'https://example.com/image.jpg',
+    imageURL: 'https://example.com/image.jpg',
   }
 
   const handleSubmit = (values: any) => {
