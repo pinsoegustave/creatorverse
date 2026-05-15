@@ -21,7 +21,7 @@ export default function Banner() {
             {/* Buttons */}
             <div className='flex gap-8'>
                 <button 
-                  onClick={() => navigate('/showcreators')}
+                  onClick={() => navigate('/')}
                   className='uppercase bg-[#5185B4] p-4 m-4 font-extrabold text-white rounded-lg'>view all creators</button>
                 <button
                  onClick={() => navigate('/add')}

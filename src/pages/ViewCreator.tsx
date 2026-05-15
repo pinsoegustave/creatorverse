@@ -1,6 +1,5 @@
 // pages/ViewCreator.tsx
 import { SiInstagram, SiX, SiYoutube } from '@icons-pack/react-simple-icons'
-import myImage from '../assets/banner.jpeg'
 import { Pencil, Trash2 } from 'lucide-react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
@@ -60,13 +59,11 @@ export default function ViewCreator() {
       <div className="flex flex-col w-200 rounded-b-2xl overflow-hidden shadow-xl">
         <div className='flex h-100 '>
           <img
-            src={myImage}
+            src={creator.imageURL}
             alt="creator"
             className="w-1/2 h-full object-cover border-2 border-[#5185B4]"
           />
           <div className="w-1/2 bg-[#111] flex flex-col justify-center gap-4 p-8">
-            
-            {/* Name + Edit/Delete */}
             <div className="flex items-center justify-between">
               <h1 className="text-white text-3xl font-bold">{creator.name}</h1>
               <div className="flex gap-2">
@@ -78,12 +75,9 @@ export default function ViewCreator() {
                 </button>
               </div>
             </div>
-            {/* Description */}
             <p className="text-gray-400 text-sm leading-relaxed">
               {creator.description}
             </p>
-
-            {/* Social media icons */}
             <div className="flex flex-col gap-4">
               <a href="#" className="flex gap-2 text-white hover:text-red-500 transition">
                 <SiYoutube size={22} /> @mrbeast_12

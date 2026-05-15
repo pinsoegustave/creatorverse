@@ -6,9 +6,6 @@ interface CreatorFormProps {
     url: string,
     description: string
     imageURL: string
-    // youtube: string
-    // instagram: string
-    // x: string
   }
   onSubmit: (values: any) => void
 }
@@ -18,9 +15,6 @@ const defaultValues = {
   url: '',
   description: '',
   imageURL: '',
-//   youtube: '',
-//   instagram: '',
-//   x: '',
 }
 
 export default function CreatorForm({ initialValues, onSubmit }: CreatorFormProps) {
@@ -96,47 +90,6 @@ export default function CreatorForm({ initialValues, onSubmit }: CreatorFormProp
               className="bg-black text-white border border-[#5185B4] rounded-lg p-3 focus:outline-none focus:border-white transition"
             />
           </div>
-            {/* <div>
-                <h4 className='text-[#5185B4] font-bold'>SOCIAL MEDIA LINKS</h4>
-                <i className='text-sm text-gray-400'>Provide atleast one of the creator's social media links.</i>
-            </div>
-          <div className="flex flex-col gap-1">
-            <label className="text-sm uppercase">YouTube</label>
-            <i className='text-sm text-gray-400'>The creator's YouTube handle (without the @)</i>
-            <input
-              type="text"
-              name="youtube"
-              value={formData.youtube}
-              onChange={handleChange}
-              placeholder="https://youtube.com/@handle"
-              className="bg-black text-white border border-[#5185B4] rounded-lg p-3 focus:outline-none focus:border-white transition"
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-            <label className="text-sm uppercase">Twitter</label>
-            <i className='text-sm text-gray-400'>The creator's Twitter handle (without the @)</i>
-            <input
-              type="text"
-              name="x"
-              value={formData.x}
-              onChange={handleChange}
-              placeholder="https://x.com/handle"
-              className="bg-black text-white border border-[#5185B4] rounded-lg p-3 focus:outline-none focus:border-white transition"
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-            <label className="text-sm uppercase">Instagram</label>
-            <i className='text-sm text-gray-400'>The creator's Instagram handle (without the @)</i>
-            <input
-              type="text"
-              name="instagram"
-              value={formData.instagram}
-              onChange={handleChange}
-              placeholder="https://instagram.com/handle"
-              className="bg-black text-white border border-[#5185B4] rounded-lg p-3 focus:outline-none focus:border-white transition"
-            />
-          </div> */}
-
           {/* Submit */}
           <button
             type="submit"
